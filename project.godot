@@ -11,7 +11,13 @@ config_version=3
 [application]
 
 config/name="Symmetrical-Waffle"
+run/main_scene="res://Scenes/Level.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/height=640
+window/size/resizable=false
 
 [gdnative]
 
