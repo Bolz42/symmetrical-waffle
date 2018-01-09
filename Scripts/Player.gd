@@ -36,10 +36,11 @@ func _process(delta):
 		$AnimationPlayer.play("Walk")
 	
 	#Visée du personnage :
-	aim.x = get_viewport().get_mouse_position().x - .get_position().x
-	aim.y = get_viewport().get_mouse_position().y - .get_position().y
-	if aim.y >= 0 : 
-		aim_angle = acos(aim.x/sqrt(aim.x*aim.x+aim.y*aim.y)) 
-	else: 
-		aim_angle = 2*PI-acos(aim.x/sqrt(aim.x*aim.x+aim.y*aim.y))
-	.set_rotation(aim_angle)
+	set_rotation(PI+get_position().angle_to_point(get_viewport().get_mouse_position()))
+#	aim.x = get_viewport().get_mouse_position().x - .get_position().x
+#	aim.y = get_viewport().get_mouse_position().y - .get_position().y
+#	if aim.y >= 0 : 
+#		aim_angle = acos(aim.x/sqrt(aim.x*aim.x+aim.y*aim.y)) 
+#	else: 
+#		aim_angle = 2*PI-acos(aim.x/sqrt(aim.x*aim.x+aim.y*aim.y))
+#	.set_rotation(aim_angle)
