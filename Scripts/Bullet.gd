@@ -4,7 +4,7 @@ extends RigidBody2D
 # var a = 2
 # var b = "textvar"
 const SPEED = 500
-
+const DAMAGE = 1
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -16,3 +16,11 @@ func _ready():
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 #	pass
+
+
+func _on_Bullet_body_entered( body ):
+	if body.has_method("damage"):
+		body.damage(DAMAGE)
+	if body.has_method("damage_on_tile"):
+		body.damage_on_tile(get_node("HitPoint").global_position, DAMAGE)
+	queue_free()
