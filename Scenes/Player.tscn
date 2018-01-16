@@ -73,4 +73,8 @@ playback/speed = 1.0
 blend_times = [  ]
 autoplay = ""
 
+[node name="ShootSpawn" type="Position2D" parent="."]
+
+position = Vector2( 34.7715, -0.429276 )
+
 

@@ -1,6 +1,9 @@
 extends KinematicBody2D
 
 const WALK_SPEED = 200
+
+var Bullet = preload("res://Scenes/Bullet.tscn")
+
 var direction = Vector2()
 var aim = Vector2()
 var aim_angle = 0
@@ -44,3 +47,10 @@ func _process(delta):
 #	else: 
 #		aim_angle = 2*PI-acos(aim.x/sqrt(aim.x*aim.x+aim.y*aim.y))
 #	.set_rotation(aim_angle)
+	
+	#tir
+	if Input.is_action_pressed("shoot"):
+		var newbullet = Bullet.instance()
+		newbullet.rotation = rotation
+		newbullet.position = get_node("ShootSpawn").global_position
+		get_parent().add_child(newbullet)
