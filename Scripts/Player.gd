@@ -49,8 +49,10 @@ func _process(delta):
 #	.set_rotation(aim_angle)
 	
 	#tir
-	if Input.is_action_pressed("shoot"):
+	var shootcd = get_node("ShootCooldown")
+	if Input.is_action_pressed("shoot") and shootcd.is_stopped():
 		var newbullet = Bullet.instance()
 		newbullet.rotation = rotation
 		newbullet.position = get_node("ShootSpawn").global_position
 		get_parent().add_child(newbullet)
+		shootcd.start()

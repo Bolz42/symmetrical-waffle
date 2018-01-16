@@ -77,4 +77,11 @@ autoplay = ""
 
 position = Vector2( 34.7715, -0.429276 )
 
+[node name="ShootCooldown" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 0.3
+one_shot = true
+autostart = false
+
 
